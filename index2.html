@@ -1,0 +1,80 @@
+
+
+<!DOCTYPE html>
+  <head>  
+  	<title>Sensor Remote Access</title>  
+
+  	<h1>Temperature Sensor Remote Access</h1>
+  </head>
+  <body>
+
+  	<p>
+  	<h3>Joaquin Giorgi & Ruiyang Shi</h3>
+    
+    <script src="plotly-latest.min.js"></script>
+
+    <div id="myDiv">
+
+    <script>  console.log("joaquin");  </script>
+
+    <script>
+
+    	var graphTimer = setInterval(updateSensor, 500);
+
+    	var x1 = [];
+    	var y1 = [];
+      
+      var i;
+    	for (i = 0; i < 100; i++) {
+    		x1.push(i);
+    		y1.push(19 + Math.random());
+    	}
+
+    	console.log(x1);
+
+    	//var x1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    	//var y1 = [20, 21.5, 19, 19.5, 19, 20, 20, 20, 20, 20];
+    	      
+      var tempTrace1 = {
+  			x: x1,
+  			y: y1,
+  			type: 'scatter'
+			};
+
+			var trace2 = {
+  			x: [1, 2, 3, 4],
+  			y: [16, 5, 11, 9],
+  			type: 'scatter'
+			};
+
+			var data = [tempTrace1];
+      Plotly.newPlot('myDiv', data);
+
+		  function updateSensor() {
+		  	var lastTemp = 19 + Math.random();
+        //tempTrace1.y.shift();  // Remove last element of array.
+        //tempTrace1.y[9] = lastTemp;  // Replaced with new randomized value.
+
+        tempTrace1.y.push(lastTemp);
+        tempTrace1.y.shift();
+
+        console.log(tempTrace1);
+
+        data = [tempTrace1];
+        Plotly.newPlot('myDiv', data);
+		  }
+
+
+     
+
+    </script>
+
+
+   </div>
+
+
+
+
+  </body>	
+
+</html>
