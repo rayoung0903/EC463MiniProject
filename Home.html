@@ -5,26 +5,47 @@
     <link rel="stylesheet" href="Login_and_Register.css" />
 </head>
 <body>
+
+
     <div class="login-page">
         <div class="form">
             <form class="register-form">
-                <input type="text" placeholder="Username" />
-                <input type="text" placeholder="Password" />
-                <button>Create</button>
+                <input type="text" placeholder="Email" id="email_register" />
+                <input type="text" placeholder="Password" id="password_register" />
+                <button onclick="register()" type="button">Create</button>
 
-                <p class="message">Already Registered? <a href="#">Login</a>
+                <p class="message">
+                    Already Registered? <a href="#">Login</a>
                 </p>
             </form>
 
             <form class="login-form">
-                <input type="text" placeholder="Username" />
-                <input type="password" placeholder="Password" />
-                <button>Login</button>
-                <p class="message">Not Registered? <a href="#">Register</a>
+                <input type="email" placeholder="Email" id="email_field" />
+                <input type="password" placeholder="Password" id="password_field" />
+                <button onclick="login()" type="button">Login</button>
+                <p class="message">
+                    Not Registered? <a href="#">Register</a>
                 </p>
             </form>
         </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDGvdNFeIr9xLMpmHZt1GT70wCaMdWsFIo",
+            authDomain: "sensordatabase-d5de9.firebaseapp.com",
+            databaseURL: "https://sensordatabase-d5de9.firebaseio.com",
+            projectId: "sensordatabase-d5de9",
+            storageBucket: "sensordatabase-d5de9.appspot.com",
+            messagingSenderId: "211985894598"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script src='buttonfunctions.js'></script>
+
     <script src='http://code.jquery.com/jquery-3.2.1.min.js'>
     </script>
     <script>
