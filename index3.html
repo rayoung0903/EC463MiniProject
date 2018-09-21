@@ -1,4 +1,3 @@
- 
 
 <!DOCTYPE html>
   <head>  
@@ -52,13 +51,10 @@ var config = {
         x1.push(i);
       }
 
-      var userId = 1;
-
-      var user = firebase.auth().currentUser;
- 
+      var userId = Math.floor(5*Math.random());
+   
       var test = firebase.database().ref('users/' + userId + '/temp_array');
    
-
       test.on("value", function(snapshot){
         //window.alert(snapshot.val());
         var y11 = snapshot.val();
