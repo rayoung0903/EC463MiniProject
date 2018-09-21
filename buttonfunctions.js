@@ -33,20 +33,17 @@ function register() {
 
     var user = firebase.auth().currentUser;
     var userId = user.uid;
-    // Random base temp between 15 and 20.
-    var baseTemp1 = 15 + Math.random() * 5;
-
-    var time_array1 = [];
-    var temp_array1 = [];
-
-    for (i = 0; i < 100; i++) {
-        time_array1.push(i);
-        temp_array1.push(base_temp1 + Math.random());
-    }
-
-    firebase.database().ref(userId).set({
-        temp_array: temp_array1,
-        time_array: time_array1
+    firebase.database().ref('users/' + userId).set({
+        name: "James"
     });
 
+
+}
+
+function logout() {
+
+    firebase.auth().signOut();
+
+    window.location.href = "Home.html";
+    
 }
